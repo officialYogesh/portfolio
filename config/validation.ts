@@ -72,7 +72,6 @@ function validatePersonalInfo(): ValidationError[] {
   const requiredFields: (keyof PersonalInfo)[] = [
     "name",
     "title",
-    "email",
     "location",
     "experience",
     "availability",
@@ -113,7 +112,7 @@ function validatePersonalInfo(): ValidationError[] {
           message: "URL is required",
           value: link.url,
         });
-      } else if (!isValidUrl(link.url) && !link.url.startsWith("mailto:")) {
+      } else if (!isValidUrl(link.url) && !link.url.startsWith("mailto:") && !link.url.startsWith("/")) {
         errors.push({
           file: fileName,
           field: `socialLinks[${index}].url`,
