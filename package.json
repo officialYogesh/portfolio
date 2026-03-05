@@ -36,6 +36,9 @@
     "zod": "^3.23.8",
     "@hookform/resolvers": "^3.3.4"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@tailwindcss/oxide", "esbuild", "sharp"]
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
