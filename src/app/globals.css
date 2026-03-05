@@ -1,0 +1,818 @@
+@import "tailwindcss";
+
+/* Import custom styles */
+@import "../styles/typography.css";
+@import "../styles/grid.css";
+@import "../styles/spacing.css";
+@import "../styles/accessibility.css";
+
+/* Root variables for theme switching */
+:root {
+  /* Default theme: Dracula */
+  --theme-name: "dracula";
+
+  /* Dracula Theme Colors */
+  --background: #282a36;
+  --foreground: #f8f8f2;
+  --primary: #bd93f9;
+  --primary-foreground: #282a36;
+  --secondary: #ff79c6;
+  --accent: #50fa7b;
+  --muted: #6272a4;
+  --border: #6272a4;
+  --card: #343746;
+  --destructive: #ff5555;
+  --warning: #f1fa8c;
+  --info: #8be9fd;
+
+  /* Typography - Custom Font Families */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: var(--font-jetbrains-mono), "SFMono-Regular", Consolas,
+    "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
+  --font-heading: var(--font-inter), system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Typography Scale - Responsive with clamp() */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);
+  --font-size-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.25rem);
+  --font-size-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);
+  --font-size-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);
+  --font-size-6xl: clamp(4rem, 3.2rem + 4vw, 6rem);
+
+  /* Line Heights */
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Letter Spacing */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Spacing and sizing */
+  --radius: 0.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* One Dark Theme */
+[data-theme="one-dark"] {
+  --theme-name: "one-dark";
+  --background: #1e1e1e;
+  --foreground: #e4e4e4;
+  --primary: #61dafb;
+  --primary-foreground: #1e1e1e;
+  --secondary: #f78c6c;
+  --accent: #98c379;
+  --muted: #a6a6a6;
+  --border: #4e4e4e;
+  --card: #2d2d2d;
+  --destructive: #e06c75;
+  --warning: #e5c07b;
+  --info: #61dafb;
+}
+
+/* One Dark specific overrides for better text visibility */
+[data-theme="one-dark"] .text-muted {
+  color: #b3b3b3;
+}
+
+[data-theme="one-dark"] .text-muted-foreground {
+  color: #b3b3b3;
+}
+
+[data-theme="one-dark"] .text-foreground\/80 {
+  color: #d4d4d4;
+}
+
+[data-theme="one-dark"] .text-foreground\/70 {
+  color: #c9c9c9;
+}
+
+/* Improve filter button visibility in One Dark theme - specific to filter buttons only */
+[data-theme="one-dark"] button.bg-muted {
+  background-color: #3c3c3c;
+}
+
+[data-theme="one-dark"] button.bg-muted .text-muted-foreground,
+[data-theme="one-dark"] button .text-muted-foreground {
+  color: #cccccc;
+}
+
+[data-theme="one-dark"] button.bg-muted:hover {
+  background-color: #484848;
+}
+
+/* Fix extra features chip visibility in One Dark theme only */
+[data-theme="one-dark"] .bg-muted.text-muted-foreground {
+  background-color: #4a4a4a;
+  color: #e0e0e0;
+  border: 1px solid #5a5a5a;
+}
+
+/* Fix description text visibility in Nord theme only */
+[data-theme="nord"] .text-muted {
+  color: #94a3b8;
+}
+
+/* Fix description text visibility in Gruvbox theme only */
+[data-theme="gruvbox"] .text-muted {
+  color: #a89984;
+}
+
+/* Fix description text visibility in Horizon theme only */
+[data-theme="horizon"] .text-muted {
+  color: #6c7293;
+}
+
+/* Fix description text visibility in Palenight theme only */
+[data-theme="palenight"] .text-muted {
+  color: #959dcb;
+}
+
+/* Fix description text visibility in Dracula theme only */
+[data-theme="dracula"] .text-muted {
+  color: #8b92c7;
+}
+
+/* Nord Theme */
+[data-theme="nord"] {
+  --theme-name: "nord";
+  --background: #2e3440;
+  --foreground: #eceff4;
+  --primary: #88c0d0;
+  --primary-foreground: #2e3440;
+  --secondary: #5e81ac;
+  --accent: #a3be8c;
+  --muted: #6a7489;
+  --border: #434c5e;
+  --card: #3b4252;
+  --destructive: #bf616a;
+  --warning: #ebcb8b;
+  --info: #81a1c1;
+}
+
+/* Gruvbox Theme */
+[data-theme="gruvbox"] {
+  --theme-name: "gruvbox";
+  --background: #282828;
+  --foreground: #fbf1c7;
+  --primary: #fabd2f;
+  --primary-foreground: #282828;
+  --secondary: #fb4934;
+  --accent: #b8bb26;
+  --muted: #665c54;
+  --border: #504945;
+  --card: #3c3836;
+  --destructive: #fb4934;
+  --warning: #fabd2f;
+  --info: #83a598;
+}
+
+/* Solarized Dark Theme */
+[data-theme="solarized-dark"] {
+  --theme-name: "solarized-dark";
+  --background: #002b36;
+  --foreground: #fdf6e3;
+  --primary: #268bd2;
+  --primary-foreground: #fdf6e3;
+  --secondary: #d33682;
+  --accent: #859900;
+  --muted: #657b83;
+  --border: #586e75;
+  --card: #073642;
+  --destructive: #dc322f;
+  --warning: #b58900;
+  --info: #2aa198;
+}
+
+/* Horizon Theme */
+[data-theme="horizon"] {
+  --theme-name: "horizon";
+  --background: #1c1e26;
+  --foreground: #e5e5e5;
+  --primary: #e95678;
+  --primary-foreground: #1c1e26;
+  --secondary: #fab795;
+  --accent: #27d796;
+  --muted: #3e4057;
+  --border: #464660;
+  --card: #232530;
+  --destructive: #f43e5c;
+  --warning: #fac29a;
+  --info: #26bbd9;
+}
+
+/* Palenight Theme */
+[data-theme="palenight"] {
+  --theme-name: "palenight";
+  --background: #292d3e;
+  --foreground: #bfc7d5;
+  --primary: #c792ea;
+  --primary-foreground: #292d3e;
+  --secondary: #f78c6c;
+  --accent: #c3e88d;
+  --muted: #5c6370;
+  --border: #676e95;
+  --card: #343a55;
+  --destructive: #f07178;
+  --warning: #ffcb6b;
+  --info: #89ddff;
+}
+
+/* Base Element Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  line-height: var(--line-height-normal);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Typography Base Styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  /* margin: 0; */
+  color: var(--foreground);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+
+p {
+  /* margin: 0; */
+  line-height: var(--line-height-relaxed);
+  color: var(--foreground);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  /* margin: 0; */
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Specific class for no underline */
+.no-underline {
+  text-decoration: none !important;
+}
+
+.no-underline:hover {
+  text-decoration: none !important;
+}
+
+small {
+  font-size: var(--font-size-sm);
+  color: var(--muted);
+}
+
+/* Utility Classes */
+.text-lead {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  color: var(--foreground);
+}
+
+.text-display {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-none);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.text-muted {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+* {
+  outline: none;
+}
+
+/* Focus states - clean and accessible */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+[role="button"]:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Remove default browser focus styles */
+button:focus,
+[role="button"]:focus,
+input:focus,
+select:focus,
+textarea:focus,
+a:focus {
+  outline: none;
+  border: none;
+}
+
+/* Only show focus on keyboard navigation */
+button:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--background);
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Enhanced utility classes for better contrast */
+.bg-background {
+  background-color: var(--background);
+}
+.bg-foreground {
+  background-color: var(--foreground);
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.bg-accent {
+  background-color: var(--accent);
+}
+.bg-muted {
+  background-color: var(--muted);
+}
+.bg-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+}
+
+.text-background {
+  color: var(--background);
+}
+.text-foreground {
+  color: var(--foreground);
+  font-weight: 400;
+}
+.text-primary {
+  color: var(--primary);
+  font-weight: 500;
+}
+.text-secondary {
+  color: var(--secondary);
+  font-weight: 500;
+}
+.text-accent {
+  color: var(--accent);
+  font-weight: 500;
+}
+.text-info {
+  color: var(--info);
+  font-weight: 500;
+}
+.text-warning {
+  color: var(--warning);
+  font-weight: 500;
+}
+
+.text-primary-foreground {
+  color: var(--primary-foreground);
+}
+
+.border-background {
+  border-color: var(--background);
+}
+.border-foreground {
+  border-color: var(--foreground);
+}
+.border-primary {
+  border-color: var(--primary);
+}
+.border-secondary {
+  border-color: var(--secondary);
+}
+.border-accent {
+  border-color: var(--accent);
+}
+.border-muted {
+  border-color: var(--muted);
+}
+.border-border {
+  border-color: var(--border);
+}
+
+.card-text {
+  color: var(--foreground);
+  opacity: 0.95;
+}
+
+.card-text-muted {
+  color: var(--muted);
+  opacity: 0.95;
+}
+
+.card-title {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --border: #000000;
+    --muted: #404040;
+  }
+}
+
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-8 > * + * {
+  margin-top: 2rem;
+}
+
+.theme-transitioning {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-transitioning * {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button,
+[role="button"],
+input,
+select,
+textarea {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Mobile optimizations - Phone only (below tablet) */
+/* Corresponds to Tailwind's `sm` and below, effectively up to `md` (768px) */
+@media (max-width: 767px) {
+  /* Ensure proper touch targets for mobile phones */
+  button,
+  [role="button"],
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better mobile text sizing */
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  /* Improve mobile container padding */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Mobile navigation improvements */
+  nav[aria-label="Mobile navigation"] {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  nav[aria-label="Mobile navigation"] a {
+    color: var(--foreground);
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  nav[aria-label="Mobile navigation"] a:hover {
+    background-color: var(--primary);
+    color: var(--background);
+  }
+
+  /* Developer logo responsive sizing */
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop optimizations */
+/* Corresponds to Tailwind's `lg` (1024px) and above */
+@media (min-width: 1024px) {
+  /* Developer logo full size on desktop */
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+}
+
+/* Ensure mobile menu doesn't interfere with scrolling */
+.mobile-menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Enhanced focus states for better accessibility */
+@media (hover: hover) {
+  button:hover,
+  [role="button"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+  button,
+  [role="button"] {
+    border: 2px solid currentColor;
+  }
+
+  /* Ensure hamburger lines are visible in high contrast */
+  .hamburger-line {
+    background-color: var(--foreground) !important;
+  }
+}
+
+/* Print optimizations */
+@media print {
+  .mobile-menu-button,
+  .theme-selector {
+    display: none !important;
+  }
+}
+
+/* Clean Pill-Shaped CTA Button Styles - High Specificity */
+button.cta-primary,
+motion.button.cta-primary,
+.cta-primary {
+  background: var(--primary, #bd93f9) !important;
+  color: var(--primary-foreground, #282a36) !important;
+  border: 1px solid var(--primary, #bd93f9) !important;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+button.cta-primary:hover,
+motion.button.cta-primary:hover,
+.cta-primary:hover {
+  background: var(--primary, #bd93f9) !important;
+  border-color: var(--primary, #bd93f9) !important;
+  opacity: 0.9 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(189, 147, 249, 0.3);
+}
+
+button.cta-secondary,
+motion.button.cta-secondary,
+.cta-secondary {
+  background: transparent !important;
+  color: var(--foreground, #f8f8f2) !important;
+  border: 1px solid var(--border, #6272a4) !important;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+button.cta-secondary:hover,
+motion.button.cta-secondary:hover,
+.cta-secondary:hover {
+  background: var(--muted, #6272a4) !important;
+  border-color: var(--primary, #bd93f9) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(98, 114, 164, 0.3);
+}
+
+/* Focus states */
+button.cta-primary:focus-visible,
+motion.button.cta-primary:focus-visible,
+.cta-primary:focus-visible,
+button.cta-secondary:focus-visible,
+motion.button.cta-secondary:focus-visible,
+.cta-secondary:focus-visible {
+  outline: 2px solid var(--primary, #bd93f9) !important;
+  outline-offset: 2px;
+}
+
+/* Disabled states */
+button.cta-primary:disabled,
+motion.button.cta-primary:disabled,
+.cta-primary:disabled,
+button.cta-secondary:disabled,
+motion.button.cta-secondary:disabled,
+.cta-secondary:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+button.cta-primary:disabled:hover,
+motion.button.cta-primary:disabled:hover,
+.cta-primary:disabled:hover,
+button.cta-secondary:disabled:hover,
+motion.button.cta-secondary:disabled:hover,
+.cta-secondary:disabled:hover {
+  background: revert;
+  border-color: revert;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Size variants */
+.cta-sm {
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  min-height: 36px !important;
+}
+
+.cta-lg {
+  padding: 16px 32px !important;
+  font-size: 16px !important;
+  min-height: 52px !important;
+}

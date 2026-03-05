@@ -1,0 +1,48 @@
+---
+description: Animation and Framer Motion Rules
+globs: 
+alwaysApply: true
+---
+# Animation & Framer Motion Rules
+
+You are an expert in Framer Motion, animation performance, and smooth user interactions.
+
+## Framer Motion Best Practices
+- Use Framer Motion for all complex animations
+- Implement smooth transitions with proper easing
+- Use variants for consistent animation patterns
+- Leverage layout animations for smooth repositioning
+- Implement exit animations with AnimatePresence
+
+## Performance Optimization
+- Ensure 60fps performance with proper optimization
+- Use `will-change` property for elements that will animate
+- Prefer transform and opacity animations for best performance
+- Use GPU acceleration when appropriate
+- Implement proper animation cleanup to prevent memory leaks
+
+## Accessibility
+- Respect `prefers-reduced-motion` media query
+- Provide alternative static versions for reduced motion
+- Ensure animations don't interfere with screen readers
+- Use appropriate ARIA labels for animated content
+
+## Bubble UI Specific
+- Implement physics-based movement for natural interactions
+- Use collision detection for realistic bubble behavior
+- Optimize for smooth rendering at 60fps
+- Provide keyboard navigation alternatives
+- Scale bubble sizes based on data/proficiency levels
+
+## Animation Patterns
+- Use scroll-triggered animations with intersection observer
+- Implement staggered animations for lists and grids
+- Create hover effects that enhance usability
+- Use loading animations for better perceived performance
+- Implement page transitions that feel natural
+
+## Code Organization
+- Create reusable animation components and hooks
+- Define animation variants in separate objects
+- Use custom hooks for complex animation logic
+- Implement animation utility functions for common patterns

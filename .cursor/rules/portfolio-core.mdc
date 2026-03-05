@@ -1,0 +1,144 @@
+---
+description: Portfolio Website Core Rules
+globs: 
+alwaysApply: true
+---
+# Portfolio Website Core Rules
+
+## Project Context
+You are an expert in TypeScript, Node.js, Next.js 15.x App Router, React, Tailwind CSS 4.x, Framer Motion, and modern portfolio website development.
+
+## Critical Rules - Always Apply
+
+### 1. Certainty and Decision Making
+- **95% CERTAINTY RULE**: Only suggest or make changes when you are more than 95% sure about the change. If less than 95% certain, ALWAYS ask for clarification instead of making assumptions
+- **NO ASSUMPTIONS**: Never assume user intent, file locations, or implementation details. When in doubt, ask specific questions
+- **EXPLICIT CONFIRMATION**: For any significant changes or new features, explicitly confirm the approach before implementing
+
+### 2. PowerShell Execution Rules - CRITICAL ⚠️ ALWAYS ENFORCE
+
+**🚨 ABSOLUTE RULE: NEVER PROCEED WITHOUT COMMAND COMPLETION CONFIRMATION 🚨**
+
+- **MANDATORY WAIT**: ALWAYS wait for PowerShell 7 command execution to complete fully before proceeding to next steps
+- **NEVER ASSUME SUCCESS**: Do not assume command success or failure until explicitly confirmed by complete output
+- **VERIFY ALL RESULTS**: Always check command output thoroughly and verify expected results before moving to next steps
+- **NO EARLY TERMINATION**: Never proceed with next actions while a command is still running or incomplete
+- **ERROR DIAGNOSIS**: If a command fails, diagnose the complete error output before suggesting alternatives
+- **OUTPUT VALIDATION**: Confirm that commands produce expected files, installations, or changes before marking tasks complete
+- **COMMAND COMPLETION**: Wait for "Command completed" message and any additional output before considering the command finished
+- **SHELL STATE AWARENESS**: Always check the current working directory and shell state before running subsequent commands
+- **EMPTY OUTPUT WARNING**: If command output appears empty, explicitly ask user to confirm command completion
+- **SILENCE IS NOT SUCCESS**: Empty terminal output does not mean success - wait for explicit confirmation
+
+### Command Verification Protocol - MANDATORY STEPS
+
+Before proceeding after any terminal command:
+1. **Wait for Complete Output**: Ensure all command output is displayed completely
+2. **Check Exit Status**: Verify command completed successfully with proper status
+3. **Validate Expected Results**: Confirm files were created, packages installed, etc.
+4. **Document Issues**: If errors occur, capture and analyze full error messages
+5. **Never Skip Verification**: Always verify before moving to next task
+6. **Ask for Confirmation**: If unsure about command completion, explicitly ask user
+7. **Re-run Commands**: If output is unclear, suggest re-running with verbose flags
+
+### PowerShell-Specific Rules
+
+- **Terminal Profile**: User is using PowerShell 7 at "C:\Program Files\PowerShell\7\pwsh.exe"
+- **Working Directory**: Always confirm current directory before running commands
+- **Command Timeouts**: If command appears to hang, wait at least 30 seconds before suggesting alternatives
+- **Verbose Output**: For critical commands, suggest using verbose flags (-Verbose, --verbose, etc.)
+- **Error Handling**: Capture and analyze PowerShell error messages completely
+
+## Technology Stack Compliance
+
+### Next.js 15.x Best Practices
+- Use App Router with `app/` directory structure
+- Leverage React Server Components (RSC) where possible
+- Minimize 'use client', 'useEffect', and 'setState' usage
+- Use Next.js metadata API for SEO
+- Implement proper error boundaries and loading states
+- Use Next.js Image component for optimization
+
+### TypeScript Standards
+- Use TypeScript for all code with strict mode enabled
+- Prefer interfaces over types for object shapes
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError)
+- Implement proper type guards and validation
+- Export types and interfaces appropriately
+
+### Tailwind CSS 4.x Guidelines
+- Use utility-first approach with Tailwind classes
+- Implement CSS custom properties for theme switching
+- Follow mobile-first responsive design principles
+- Use Tailwind's performance optimizations
+- Avoid custom CSS unless absolutely necessary
+
+### Animation & Performance
+- Use Framer Motion for complex animations
+- Ensure 60fps performance with proper optimization
+- Respect `prefers-reduced-motion` for accessibility
+- Use `will-change` and transform properties appropriately
+- Implement proper animation cleanup and memory management
+
+## Code Style and Structure
+
+### Component Architecture
+- Write concise, functional TypeScript code with accurate examples
+- Use functional and declarative programming patterns; avoid classes
+- Favor iteration and modularization over code duplication
+- Structure files: exported component, subcomponents, helpers, static content, types
+- Use lowercase with dashes for directories (e.g., components/auth-wizard)
+- Favor named exports for components
+
+### File Organization
+- App Router: Use Next.js 15 App Router structure (`app/` directory)
+- Configuration: Keep all hardcoded content in `/config` directory
+- Components: Organize components by feature and reusability
+- Styles: Use Tailwind classes with CSS custom properties for themes
+
+## Portfolio-Specific Requirements
+
+### Multi-Theme System
+- Implement 7 color themes: Dracula, One Dark, Nord, Gruvbox, Solarized Dark, Horizon, Palenight
+- Use CSS custom properties for theme-specific values
+- Maintain WCAG 2.1 AA compliance across all themes
+- Ensure smooth theme switching performance
+- Store theme preference in localStorage
+
+### Content Management
+- Store all hardcoded content in configuration files
+- Use TypeScript interfaces for all content structures
+- Ensure content can be easily modified without touching components
+- Implement build-time validation for required content fields
+
+### Performance Standards
+- Lighthouse Score: 95+ for all categories
+- Core Web Vitals: LCP < 2.5s, FID < 100ms, CLS < 0.1
+- Bundle Size: Initial page load < 100KB compressed
+- Animation Performance: Consistent 60fps
+
+### Accessibility Requirements
+- WCAG 2.1 AA compliance is mandatory
+- Full keyboard navigation support
+- Proper ARIA labels and semantic HTML
+- Screen reader compatibility
+- Color contrast minimum 4.5:1 ratio
+
+## Task Management
+- Reference task numbers from TASKS.md when working on specific features
+- Update TASKS.md progress after completing tasks
+- Document any deviations from PRD requirements
+- Provide clear explanations for technical decisions
+
+## Error Prevention
+- Avoid hardcoding colors, sizes, or content outside config files
+- Don't implement features that break in specific themes
+- Monitor performance impact of new features
+- Test accessibility with every new component
+- Always test mobile responsiveness and touch interactions
+
+## Quality Gates
+- Before committing: Run linting, type checking, and basic tests
+- Before deploying: Run full test suite and performance audit
+- Test all features with each theme variant
+- Verify functionality across target browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

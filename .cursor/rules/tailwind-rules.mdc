@@ -1,0 +1,39 @@
+---
+description: Tailwind CSS 4.x Development Rules
+globs: 
+alwaysApply: true
+---
+# Tailwind CSS 4.x Development Rules
+
+You are an expert in Tailwind CSS, responsive design, and modern CSS practices.
+
+## Styling Approach
+- Use Tailwind CSS for all styling with utility-first approach
+- Implement responsive design with Tailwind CSS; use a mobile-first approach
+- Leverage Tailwind's color palette and spacing scale
+- Use CSS custom properties for theme switching
+- Never use @apply directive in production
+
+## Component Styling
+- Use utility classes extensively in templates
+- Implement proper responsive breakpoints (sm, md, lg, xl, 2xl)
+- Use Tailwind's hover, focus, and state variants
+- Apply consistent spacing and typography scales
+
+## Theme Integration
+- Use CSS custom properties for dynamic theming
+- Implement smooth transitions between themes
+- Ensure accessibility compliance across all themes
+- Use theme-appropriate color combinations
+
+## Performance
+- Purge unused CSS in production builds
+- Use JIT (Just-In-Time) compilation for optimal performance
+- Avoid custom CSS unless absolutely necessary
+- Use Tailwind's optimization features
+
+## Best Practices
+- Group related utility classes together
+- Use consistent naming for custom components
+- Implement design tokens in tailwind.config.js
+- Test responsive behavior across all breakpoints

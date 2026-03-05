@@ -1,0 +1,256 @@
+/* Typography Utility Classes */
+
+/* Font Family Utilities */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Font Size Utilities */
+.text-xs {
+  font-size: var(--font-size-xs);
+}
+
+.text-sm {
+  font-size: var(--font-size-sm);
+}
+
+.text-base {
+  font-size: var(--font-size-base);
+}
+
+.text-lg {
+  font-size: var(--font-size-lg);
+}
+
+.text-xl {
+  font-size: var(--font-size-xl);
+}
+
+.text-2xl {
+  font-size: var(--font-size-2xl);
+}
+
+.text-3xl {
+  font-size: var(--font-size-3xl);
+}
+
+.text-4xl {
+  font-size: var(--font-size-4xl);
+}
+
+.text-5xl {
+  font-size: var(--font-size-5xl);
+}
+
+.text-6xl {
+  font-size: var(--font-size-6xl);
+}
+
+/* Font Weight Utilities */
+.font-thin {
+  font-weight: var(--font-weight-thin);
+}
+
+.font-light {
+  font-weight: var(--font-weight-light);
+}
+
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.font-extrabold {
+  font-weight: var(--font-weight-extrabold);
+}
+
+.font-black {
+  font-weight: var(--font-weight-black);
+}
+
+/* Line Height Utilities */
+.leading-none {
+  line-height: var(--line-height-none);
+}
+
+.leading-tight {
+  line-height: var(--line-height-tight);
+}
+
+.leading-snug {
+  line-height: var(--line-height-snug);
+}
+
+.leading-normal {
+  line-height: var(--line-height-normal);
+}
+
+.leading-relaxed {
+  line-height: var(--line-height-relaxed);
+}
+
+.leading-loose {
+  line-height: var(--line-height-loose);
+}
+
+/* Letter Spacing Utilities */
+.tracking-tighter {
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.tracking-tight {
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.tracking-normal {
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.tracking-wide {
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.tracking-wider {
+  letter-spacing: var(--letter-spacing-wider);
+}
+
+.tracking-widest {
+  letter-spacing: var(--letter-spacing-widest);
+}
+
+/* Responsive Typography Helpers */
+.text-responsive-lg {
+  font-size: var(--font-size-lg);
+}
+
+.text-responsive-xl {
+  font-size: var(--font-size-xl);
+}
+
+.text-responsive-2xl {
+  font-size: var(--font-size-2xl);
+}
+
+.text-responsive-3xl {
+  font-size: var(--font-size-3xl);
+}
+
+.text-responsive-4xl {
+  font-size: var(--font-size-4xl);
+}
+
+.text-responsive-5xl {
+  font-size: var(--font-size-5xl);
+}
+
+.text-responsive-6xl {
+  font-size: var(--font-size-6xl);
+}
+
+@media (max-width: 640px) {
+  .text-responsive-lg {
+    font-size: var(--font-size-base);
+  }
+
+  .text-responsive-xl {
+    font-size: var(--font-size-lg);
+  }
+
+  .text-responsive-2xl {
+    font-size: var(--font-size-xl);
+  }
+
+  .text-responsive-3xl {
+    font-size: var(--font-size-2xl);
+  }
+
+  .text-responsive-4xl {
+    font-size: var(--font-size-3xl);
+  }
+
+  .text-responsive-5xl {
+    font-size: var(--font-size-4xl);
+  }
+
+  .text-responsive-6xl {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+/* Semantic Typography Classes */
+.text-hero {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-none);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.text-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-body-large {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+}
+
+.text-body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+}
+
+.text-caption {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-normal);
+  color: var(--muted);
+}
+
+.text-code {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
+}

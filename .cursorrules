@@ -1,0 +1,63 @@
+# Portfolio Website - Cursor Rules Configuration
+# This file ensures all project rules are automatically applied in Cursor
+
+## Main Interactive Task Loop Rule
+@include .cursor/rules/main.mdc
+
+## Portfolio-Specific Core Rules  
+@include .cursor/rules/portfolio-core.mdc
+
+## Technology Stack Rules
+@include .cursor/rules/nextjs-rules.mdc
+@include .cursor/rules/tailwind-rules.mdc
+@include .cursor/rules/animation-rules.mdc
+
+---
+
+# Quick Reference - Key Rules
+
+## 🚨 CRITICAL PowerShell Execution Rules
+- **NEVER PROCEED WITHOUT COMMAND COMPLETION CONFIRMATION**
+- **ALWAYS WAIT** for PowerShell 7 command execution to complete fully
+- **VERIFY ALL RESULTS** before moving to next steps
+- **ERROR DIAGNOSIS** before suggesting alternatives
+
+## 📋 Task Management
+- Use **95% CERTAINTY RULE** - only suggest changes when >95% sure
+- Reference task numbers from TASKS.md when working on specific features
+- **NO ASSUMPTIONS** - ask for clarification when uncertain
+
+## 🎯 Main Interactive Loop
+After completing tasks:
+1. Run `python userinput.py` 
+2. Read user input from terminal
+3. Perform next tasks based on input
+4. Repeat until user enters "stop"
+
+## 💻 Tech Stack Standards
+- **Next.js 15.x** App Router with RSC
+- **TypeScript** strict mode with proper interfaces  
+- **Tailwind CSS 4.x** utility-first approach
+- **Framer Motion** for animations (60fps target)
+- **7 Color Themes** with CSS custom properties
+
+## 🎨 Portfolio Requirements  
+- **Multi-theme system** (Dracula, One Dark, Nord, Gruvbox, Solarized Dark, Horizon, Palenight)
+- **WCAG 2.1 AA compliance** across all themes
+- **Lighthouse 95+** for all categories
+- **Content management** via config files only
+- **Performance**: LCP < 2.5s, FID < 100ms, CLS < 0.1
+
+## 📁 File Organization
+- `/config/` - All hardcoded content and configuration
+- `/src/app/` - Next.js 15 App Router structure  
+- `/src/components/` - Organized by feature and reusability
+- **Lowercase with dashes** for directories
+
+## ✅ Quality Gates
+- Linting, type checking, and basic tests before committing
+- Full test suite and performance audit before deploying  
+- Test all features with each theme variant
+- Verify mobile responsiveness and accessibility
+
+Remember: **Certainty over speed** - ask when uncertain, verify before proceeding! 
