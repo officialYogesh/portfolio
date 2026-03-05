@@ -11,6 +11,7 @@ import { inter, jetbrainsMono } from "@/lib/fonts";
 import { personalInfo } from "../../config/personal-info";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(personalInfo.seo.siteUrl),
   title: personalInfo.seo.metaTitle,
   description: personalInfo.seo.metaDescription,
   keywords: personalInfo.seo.keywords.join(", "),
